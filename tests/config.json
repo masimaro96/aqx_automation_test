@@ -5,6 +5,7 @@
     "login_btn": "//button[contains(@data-testid, 'login-submit')]",
 
     "trade": {
+        "all_symbols": "//div[contains(@data-testid, 'tab-all')]",
         "buy_order": "//button[contains(@data-testid, 'trade-button-order-buy')]",
         "sell_order": "//button[contains(@data-testid, 'trade-button-order-sell')]",
         "size": "//input[contains(@data-testid, 'trade-input-volume')]",

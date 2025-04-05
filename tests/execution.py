@@ -3,23 +3,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-import login_page
-from base_page import *
-from login_page import Logging
+import login_page, trade_page
+from framework import *
 
-
-def MyExecution(domain_name):
-    error_menu = []
-
-    try:
-        login_page().login(domain_name)
-    except:
-        Logging("Cannot continue execution")
-        error_menu.append("login_page")
 
 def My_Execution(domain_name):
     login_page.login(domain_name)
+    trade_page.order_page_buy()
+    trade_page.order_page_sell()
 
-My_Execution("https://aqxtrader.aquariux.com/web/login")
+My_Execution("https://aqxtrader.aquariux.com/web")
 
     
