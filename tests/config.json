@@ -1,0 +1,15 @@
+{
+    "account_demo": "//div[contains(@data-testid, 'tab-login-account-type-demo')]",
+    "username": "//input[contains(@data-testid, 'login-user-id')]",
+    "password": "//input[contains(@data-testid, 'login-password')]",
+    "login_btn": "//button[contains(@data-testid, 'login-submit')]",
+
+    "trade": {
+        "buy_order": "//button[contains(@data-testid, 'trade-button-order-buy')]",
+        "sell_order": "//button[contains(@data-testid, 'trade-button-order-sell')]",
+        "size": "//input[contains(@data-testid, 'trade-input-volume')]",
+        "stop_loss": "//input[contains(@data-testid, 'trade-input-stoploss-price')]",
+        "take_profit": "//input[contains(@data-testid, 'trade-input-takeprofit-price')]",
+        "submit": "//button[contains(@data-testid, 'trade-button-order')]"
+    }
+}
