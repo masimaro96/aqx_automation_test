@@ -31,7 +31,7 @@ def buy_sell_market_order(type_detail):
         print("Market order button is enabled")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["submit"]))).click()
         print(f"-> Click '{type_detail}' Market button")
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["confirm"]))).click()
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["confirm_order"]))).click()
         try:
             # Validate the order placed details
             positions_table = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//tbody[contains(@data-testid, 'asset-open-list')]")))
@@ -49,7 +49,7 @@ def select_random_order_type():
 
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, data["trade"]["order_trade"]["drop_down_order"]))).click()
 
-    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, f"//div[@data-testid  and contains(., '{order_type}']"))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, f"//div[contain(@data-testid  and contains(., '{order_type}']"))).click()
 
     print(f"Order type selected: {order_type}")
     return order_type
@@ -61,7 +61,7 @@ def expiry_random():
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["drop_down_expiry"]))).click()
 
     # Select order type randomly
-    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, f"//div[contains@data-testid  and contains(., '{expiry}']"))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, f"//div[contain(@data-testid  and contains(., '{expiry}']"))).click()
 
     print(f"Expiry selected: {expiry}")
     return expiry
