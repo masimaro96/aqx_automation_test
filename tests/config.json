@@ -11,6 +11,13 @@
         "size": "//input[contains(@data-testid, 'trade-input-volume')]",
         "stop_loss": "//input[contains(@data-testid, 'trade-input-stoploss-price')]",
         "take_profit": "//input[contains(@data-testid, 'trade-input-takeprofit-price')]",
-        "submit": "//button[contains(@data-testid, 'trade-button-order')]"
+        "drop_down_expiry": "//div[contains(@data-testid, 'trade-dropdown-expiry')]",
+        "submit": "//button[contains(@data-testid, 'trade-button-order')]",
+
+        "order_trade": {
+            "drop_down_order": "//div[contains(@data-testid, 'trade-dropdown-order-type')]",
+            "limit": "//div[contains(@data-testid, 'trade-dropdown-order-type-limit')]",
+            "stop": "//div[contains(@data-testid, 'trade-dropdown-order-type-stop')]"
+        }
     }
 }

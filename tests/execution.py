@@ -11,6 +11,7 @@ def My_Execution(domain_name):
     login_page.login(domain_name)
     trade_page.order_page_buy()
     trade_page.order_page_sell()
+    trade_page.order_page_type_random()
 
 My_Execution("https://aqxtrader.aquariux.com/web")
 
