@@ -6,13 +6,14 @@
 
     "trade": {
         "all_symbols": "//div[contains(@data-testid, 'tab-all')]",
-        "buy_order": "//button[contains(@data-testid, 'trade-button-order-buy')]",
-        "sell_order": "//button[contains(@data-testid, 'trade-button-order-sell')]",
+        "buy_order": "//div[contains(@data-testid, 'trade-button-order-buy')]",
+        "sell_order": "//div[contains(@data-testid, 'trade-button-order-sell')]",
         "size": "//input[contains(@data-testid, 'trade-input-volume')]",
         "stop_loss": "//input[contains(@data-testid, 'trade-input-stoploss-price')]",
         "take_profit": "//input[contains(@data-testid, 'trade-input-takeprofit-price')]",
         "drop_down_expiry": "//div[contains(@data-testid, 'trade-dropdown-expiry')]",
         "submit": "//button[contains(@data-testid, 'trade-button-order')]",
+        "confirm_order": "//button[contains(@data-testid, 'trade-button-order-confirm')]",
 
         "order_trade": {
             "drop_down_order": "//div[contains(@data-testid, 'trade-dropdown-order-type')]",

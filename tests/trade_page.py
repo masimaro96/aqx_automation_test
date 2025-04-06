@@ -6,8 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from framework import *
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from login_page import driver, data
 
@@ -32,7 +31,7 @@ def buy_sell_market_order(type_detail):
         print("Market order button is enabled")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["submit"]))).click()
         print(f"-> Click '{type_detail}' Market button")
-
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["confirm"]))).click()
         try:
             # Validate the order placed details
             positions_table = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//tbody[contains(@data-testid, 'asset-open-list')]")))
@@ -45,13 +44,12 @@ def buy_sell_market_order(type_detail):
 
 
 def select_random_order_type():
-    order_type = random.choice(["Limit", "Stop"])
     
-    # Open dropdown menu to select order type
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["order_trade"]["drop_down_order"]))).click()
+    order_type = random.choice(["Limit", "Stop"])
 
-    # Select order type randomly
-    WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, f"//div[contains(@data-testid='{order_type}']"))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, data["trade"]["order_trade"]["drop_down_order"]))).click()
+
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, f"//div[@data-testid  and contains(., '{order_type}']"))).click()
 
     print(f"Order type selected: {order_type}")
     return order_type
@@ -63,7 +61,7 @@ def expiry_random():
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["drop_down_expiry"]))).click()
 
     # Select order type randomly
-    WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, f"//div[contains(@data-testid='{expiry}']"))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, f"//div[contains@data-testid  and contains(., '{expiry}']"))).click()
 
     print(f"Expiry selected: {expiry}")
     return expiry
@@ -71,6 +69,7 @@ def expiry_random():
 def order_page_buy(): 
     # Buy Market Order
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["trade"]["all_symbols"]))).click()
+    print("-> Buy Market Order")
     input_order_details()
     buy_sell_market_order("Buy")
     
